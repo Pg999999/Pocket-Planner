@@ -42,4 +42,134 @@ Additionally, PocketPlanner also provides with helpDesk and support.
 TECHNICAL DOCUMENTATION:
 
 
+File Structure:
 
+index.html: Main HTML file containing the app layout and structure.
+
+style.css: CSS file for styling the app.
+
+script.js: JavaScript file for functionality (handling user interactions, adding expenses, etc.).
+
+
+Components: 
+Header Section
+
+Contains user profile information, a profile picture, and control icons (notifications, contact us, help).
+
+Profile Section: Displays the greeting and profile picture. Allows profile picture update.
+
+Control Icons: Icons for quick access to notifications, contact support, and help sections.
+
+
+Dashboard Content
+
+Expense Filter: Allows the user to filter expenses by categories like food, travel, etc.
+
+Balance Display: Shows total spent and remaining balance.
+
+Expense Grid: Visual representation of different expense categories (food, travel, etc.).
+
+Add Expense Button: Opens a popup to add new expenses.
+
+Expense List: Displays the list of expenses that the user has added.
+
+
+Expense Popup
+
+Form for adding a new expense.
+Inputs include amount, category, payment method, and transaction type (spend/credit).
+Upon submission, the form updates the expense list and financial details (total spent, balance).
+
+Analytics Panel
+
+Allows users to set budget limits (daily and monthly).
+Alerts are displayed if the user exceeds their set limits.
+
+Right Panel
+
+Contains notifications and profile information.
+The user can toggle between notifications and profile tabs.
+
+Footer
+
+Displays quick links (Dashboard, Profile, Expenses) and copyright information.
+JavaScript Functionality
+
+Add Expense Logic
+
+The addExpenseBtn triggers the opening of the expense form.
+On form submission, the expenseForm calculates the total spent and updates the balance.
+Expenses are categorized (food, travel, etc.) and added to the expense list dynamically.
+
+Expense Filtering
+
+The categoryFilter dropdown allows users to filter expenses by category. Each expense item has a data-category attribute, and the filtering logic hides or shows items based on the selected category.
+
+Budget Alerts
+
+The app allows users to set daily and monthly budget limits. When an expense exceeds these limits, an alert is displayed with a message indicating the breach.
+
+Profile Section
+
+The profile section allows users to upload and update their profile picture using an input field (input[type="file"]). The picture is displayed in the profilePic element once selected.
+
+Notifications Panel
+
+The right panel shows notifications and user profile information, which can be toggled using the "Notifications" and "Profile" buttons.
+
+Popup Logic
+All popups (expense form, contact us) are initially hidden with the hidden class. They are shown when the corresponding buttons are clicked and hidden when the close button (&times;) is pressed.
+
+Charts for Analytics:
+
+The app uses a bar chart (expenseChart) to display expenses versus budget limits (daily and monthly).
+The chart is dynamically updated with each expense entry.
+A category-based chart (categoryChart) could be added to track the breakdown of expenses by category.
+
+Popup Management:
+
+Various popups for adding expenses, viewing notifications, and viewing profiles are toggled using event listeners. Popups are hidden or shown based on user interaction.
+
+Expense and Analytics Updates:
+
+Whenever an expense is added, the app checks if the spending exceeds predefined limits and updates the respective charts. Alerts notify the user of any excess.
+
+Event Listeners:
+
+Multiple event listeners manage user interactions such as adding an expense, changing filters, opening/closing panels, and navigating between tabs (e.g., notifications, profile).
+
+createExpenseChart():
+
+Initializes a bar chart for displaying daily and monthly expenses vs limits.
+Displays four data points: daily expenses, monthly expenses, daily limit, and monthly limit.
+Colors indicate if limits are exceeded.
+
+createCategoryChart():
+
+Initializes a bar chart showing expenses by category.
+Uses different colors for each category.
+Categories are dynamic and data-driven from expenseCategories.
+
+createMonthlyExpensesChart():
+
+Initializes a line chart to display the history of monthly expenses.
+Uses monthlyExpensesHistory for the data, where each month’s expenses are tracked.
+
+updateExpenseChart():
+
+Updates the expenseChart with current values of daily/ monthly expenses and limits.
+Changes color when limits are exceeded.
+
+updateCategoryChart():
+
+Updates the categoryChart with updated values from expenseCategories.
+
+updateMonthlyExpensesChart():
+
+Updates monthlyExpensesChart with the latest monthly expense data.
+Maintains a rolling 12-month history by shifting old data.
+
+Initialization:
+On page load, it checks for saved limits in localStorage and applies them if present.
+Three charts are created: expenseChart, categoryChart, and monthlyExpensesChart.
+Limits for daily and monthly expenses are also handled by saving them in localStorage.
