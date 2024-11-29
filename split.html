@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Expense Tracker - Split</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css" media="all">
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F4F9FC;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #007BFF;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Main App Container */
+.app-container {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.member-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.member-input input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+/* Buttons */
+#add-member-btn, #calculate-btn, #split-calculate-btn, #add-borrowed-btn, #add-payable-btn {
+    padding: 12px 20px;
+    background-color: #3A8DFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#add-member-btn:hover, #calculate-btn:hover, #split-calculate-btn:hover, #add-borrowed-btn:hover, #add-payable-btn:hover {
+    background-color: #007BFF;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .member-input {
+        flex-direction: column;
+    }
+
+    .member-input input {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+      
+    </style>
+</head>
+<body>
+
+  
+
+    <!-- Split Expenses Content -->
+    <div class="app-container">
+        <h3>Split Expenses</h3>
+
+        <!-- Part 1: Money Split Between Members -->
+        <div id="money-split-section">
+            <h4>Money Split Between Members</h4>
+            <input type="number" id="total-amount-split" placeholder="Total Amount">
+            <input type="number" id="number-of-members-split" placeholder="Number of Members">
+            <button id="split-calculate-btn">Calculate</button>
+            <p id="split-result"></p>
+        </div>
+
+        <!-- Part 2: Borrowed Amounts -->
+        <div id="borrowed-section">
+            <h4>Borrowed Amounts</h4>
+            <div id="borrowed-container"></div>
+            <button id="add-borrowed-btn">Add Borrowed Amount</button>
+        </div>
+
+        <!-- Part 3: Payable Amounts -->
+        <div id="payable-section">
+            <h4>Payable Amounts</h4>
+            <div id="payable-container"></div>
+            <button id="add-payable-btn">Add Payable Amount</button>
+        </div>
+
+        <!-- Calculation Result -->
+        <div id="calculation-section">
+            <button id="calculate-btn">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="split.js"></script>
+</body>
+</html>
