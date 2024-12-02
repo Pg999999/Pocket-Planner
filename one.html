@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
+           }
 
         .profile-info {
             display: grid;
@@ -102,10 +102,10 @@
             cursor: pointer;
         }
 
-        /* Expense Grid Layout */
+      
         .expense-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Decreased minimum width */
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
             gap: 15px;
             margin-top: 30px;
         }
@@ -124,7 +124,7 @@
             background-color: #f4f4f4;
         }
 
-        /* Add Expense Button */
+       
         .add-expense {
             margin-top: 20px;
             text-align: center;
@@ -144,7 +144,7 @@
             background-color: #2980b9;
         }
 
-        /* Expense Form Popup */
+      
         .popup-content {
             background: white;
             padding: 30px;
@@ -181,7 +181,6 @@
             background-color: #27ae60;
         }
 
-        /* Expense List */
         .expense-list {
             margin-top: 40px;
         }
@@ -204,7 +203,6 @@
             color: #27ae60;
         }
 
-        /* Balance Display */
         .balance-display {
             display: flex;
             justify-content: space-between;
@@ -223,7 +221,7 @@
             color: #2ecc71;
         }
 
-        /* Filter Section */
+  
         .filter-section {
             margin-top: 30px;
             display: flex;
@@ -257,14 +255,14 @@
         }
         @media (max-width: 768px) {
     .analytics-panel {
-        width: 80%; /* Take up more space */
+        width: 80%; 
     }
 
     .toggle-arrow {
         font-size: 16px;
     }
 }
-/* Toggle Button */
+
 .toggle-arrow {
     position: fixed;
     top: 50%;
@@ -285,11 +283,11 @@
     background-color: #2980b9;
 }
 
-/* Analytics Panel */
+
 .analytics-panel {
     position: fixed;
     top: 0;
-    left: -300px; /* Hidden off-screen */
+    left: -300px; 
     width: 300px;
     height: 100%;
     background-color: white;
@@ -299,7 +297,7 @@
     overflow-y: auto;
 }
 
-/* Panel Header */
+
 .analytics-header {
     display: flex;
     justify-content: space-between;
@@ -325,12 +323,11 @@
     color: #c0392b;
 }
 
-/* Analytics Content */
+
 .analytics-content {
     padding: 20px;
 }
 
-/* Right Panel Toggle Button */
 .right-toggle {
     position: fixed;
     top: 50%;
@@ -351,11 +348,11 @@
     background-color: #2980b9;
 }
 
-/* Right Panel */
+
 .right-panel {
     position: fixed;
     top: 0;
-    right: -350px; /* Hidden off-screen */
+    right: -350px; 
     width: 350px;
     height: 100%;
     background-color: white;
@@ -367,7 +364,7 @@
     flex-direction: column;
 }
 
-/* Panel Header */
+
 .panel-header {
     display: flex;
     justify-content: space-between;
@@ -393,13 +390,13 @@
     color: #c0392b;
 }
 
-/* Panel Content */
+
 .panel-content {
     padding: 20px;
     flex: 1;
 }
 
-/* Panel Footer (Tabs for switching) */
+
 .panel-footer {
     display: flex;
     justify-content: space-evenly;
@@ -428,7 +425,7 @@
 <body>
     <header>
         <div class="dashboard-header">
-            <!-- Profile Section -->
+         
             <div class="profile-section">
                 <div class="profile-info">
                     <span><h1>Hello!</h1></span>
@@ -440,7 +437,6 @@
                 </div>
             </div>
 
-            <!-- Right Controls -->
             <div class="controls">
                 <div class="icon notification-icon" title="Notifications">
                     🔔
@@ -454,7 +450,7 @@
             </div>
         </div>
 
-        <!-- Contact Us Popup -->
+   
         <div id="contactPopup" class="popup hidden">
             <div class="popup-content">
                 <span class="close-popup">&times;</span>
@@ -468,7 +464,7 @@
 
     <div class="dashboard-content">
         <button type="submit" ><a href="split.html" style="color:white">SPLIT</a></button>
-        <!-- Filter by Category Dropdown -->
+  
         <div class="filter-section">
             <label for="categoryFilter">Filter by Category:</label>
             <select id="categoryFilter">
@@ -481,13 +477,13 @@
             </select>
         </div>
 
-        <!-- Balance and Total Spent Display -->
+      
         <div class="balance-display">
             <div class="total-spent">Total Spent: ₹<span id="totalSpent">0</span></div>
             <div class="balance">Balance: ₹<span id="balance">5000</span></div>
         </div>
 
-        <!-- Expense Categories Grid -->
+    
         <div class="expense-grid">
             <div class="expense-item" data-category="all">
                 🌀 All
@@ -510,16 +506,16 @@
             </div>
         </div>
 
-        <!-- Add Expense Button -->
+
         <div class="add-expense">
             <button id="addExpenseBtn">Add Expense</button>
         </div>
 
-        <!-- Expense List -->
+
         <div class="expense-list" id="expenseList"></div>
     </div>
 
-    <!-- Add Expense Popup Form -->
+
     <div id="expensePopup" class="popup hidden">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
@@ -560,15 +556,12 @@
         </div>
     </div>
     <body>
-        <!-- Your existing content -->
-    
-        <!-- Analytics Toggle Button -->
+   
         <div id="analyticsToggle" class="toggle-arrow">
             ➤
         </div>
         
     
-        <!-- Analytics Panel -->
         <div id="analyticsPanel" class="analytics-panel">
             <div class="analytics-header">
                 <h1>Analytics</h1>
@@ -589,7 +582,7 @@
             ➤
         </div>
     
-        <!-- Right-Side Panel -->
+  
         <div id="rightPanel" class="right-panel">
             <div class="panel-header">
                 <h2 id="panelTitle">Notifications</h2>
@@ -597,10 +590,10 @@
             </div>
     
             <div class="panel-content" id="panelContent">
-                <!-- Dynamic content for notifications or profile will load here -->
+             
             </div>
     
-            <!-- Navigation between Notifications and Profile -->
+          
             <div class="panel-footer">
                 <button id="notificationsTab">Notifications</button>
                 <button id="profileTab">Profile</button>
@@ -642,19 +635,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalSpent = 0;
 
 
-    // Open popup when Add Expense button is clicked
+
     addExpenseBtn.addEventListener('click', () => {
         expensePopup.classList.remove('hidden');
     });
 
-    // Close popup when the close button is clicked
+
     closePopupBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             expensePopup.classList.add('hidden');
         });
     });
 
-    // Handle form submission
     expenseForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -672,7 +664,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             balanceChange += amount;
         }
-
         const expenseItem = document.createElement('div');
         expenseItem.classList.add('expense-item-bar', transactionType);
         expenseItem.innerHTML = `
@@ -681,53 +672,52 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="date">${date}</span>
             <span class="paymentMethod">${paymentMethod}</span>
         `;
-
         expenseList.appendChild(expenseItem);
         expensePopup.classList.add('hidden');
 
-        // Update balance and total spent
+ 
         const currentBalance = parseFloat(balanceElement.textContent);
-        balanceElement.textContent = (currentBalance + balanceChange).toFixed(2);
-        totalSpentElement.textContent = totalSpent.toFixed(2);
+        balanceElement.textContent = (currentBalance + balanceChange).toFixed(1);
+        totalSpentElement.textContent = totalSpent.toFixed(1);
     });
 
-    // Handle category filter
+
     categoryFilter.addEventListener('change', () => {
         const selectedCategory = categoryFilter.value.toLowerCase();
         filterExpensesByCategory(selectedCategory);
     });
 
-    // Filter expenses by category
+   
     function filterExpensesByCategory(category) {
         const expenseBars = document.querySelectorAll('.expense-item-bar'); // Dynamically query all items
         expenseBars.forEach(bar => {
             const barCategory = bar.querySelector('.category').textContent.toLowerCase();
             if (category === 'all' || barCategory === category) {
-                bar.style.display = 'flex'; // Show matching expenses
+                bar.style.display = 'flex';
             } else {
-                bar.style.display = 'none'; // Hide non-matching expenses
+                bar.style.display = 'none'; 
             }
         });
     }
 
-    // Handle category buttons (expense grid)
+
     const expenseItems = document.querySelectorAll('.expense-item');
     expenseItems.forEach(item => {
         item.addEventListener('click', () => {
             const category = item.getAttribute('data-category');
-            categoryFilter.value = category; // Update dropdown for user clarity
+            categoryFilter.value = category; 
             filterExpensesByCategory(category);
         });
     });
 });
 
-analyticsToggle.innerHTML = '➤'; // Initially closed
+analyticsToggle.innerHTML = '➤';
 analyticsToggle.addEventListener('click', () => {
     if (analyticsPanel.style.left === '0px') {
-        analyticsPanel.style.left = '-300px'; // Close panel
+        analyticsPanel.style.left = '-300px';
         analyticsToggle.innerHTML = '➤';
     } else {
-        analyticsPanel.style.left = '0'; // Open panel
+        analyticsPanel.style.left = '0';
         analyticsToggle.innerHTML = '➽';
     }
 });
@@ -741,39 +731,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const panelTitle = document.getElementById('panelTitle');
     const panelContent = document.getElementById('panelContent');
 
-    // Open the right panel
+ 
     rightPanelToggle.addEventListener('click', () => {
-        rightPanel.style.right = '0'; // Slide in
+        rightPanel.style.right = '0'; 
     });
 
-    // Close the right panel
+
     closeRightPanel.addEventListener('click', () => {
-        rightPanel.style.right = '-350px'; // Slide out
+        rightPanel.style.right = '-350px'; 
     });
 
-    // Load notifications content
+  
     notificationsTab.addEventListener('click', () => {
         panelTitle.textContent = 'Notifications';
         panelContent.innerHTML = '<p>Loading notifications...</p>';
 
-        // Simulate backend data fetch
-        setTimeout(() => {
-            panelContent.innerHTML = `
-                <ul>
-                    <li>Notification 1: You spent ₹500 on food.</li>
-                    <li>Notification 2: Your balance is low!</li>
-                    <li>Notification 3: Expense report generated.</li>
-                </ul>
-            `;
-        }, 1000);
+        // setTimeout(() => {
+        //     panelContent.innerHTML = `
+        //         <ul>
+        //             <li>Notification 1: You spent ₹500 on food.</li>
+        //             <li>Notification 2: Your balance is low!</li>
+        //             <li>Notification 3: Expense report generated.</li>
+        //         </ul>
+        //     `;
+        // }, 1000);
     });
 
-    // Load profile content
+
     profileTab.addEventListener('click', () => {
         panelTitle.textContent = 'Profile';
         panelContent.innerHTML = '<p>Loading profile...</p>';
 
-        // Simulate backend data fetch
         setTimeout(() => {
             panelContent.innerHTML = `
                 <p><strong>Name:</strong> Abhishek</p>
@@ -784,26 +772,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     });
 
-    // Default to notifications tab on load
+  
     notificationsTab.click();
 });
 document.addEventListener('DOMContentLoaded', () => {
-    // Contact Us Popup Functionality
+
     const contactUsIcon = document.querySelector('.contact-us');
     const contactPopup = document.getElementById('contactPopup');
     const closeContactPopupBtn = contactPopup.querySelector('.close-popup');
 
-    // Open Contact Popup
     contactUsIcon.addEventListener('click', () => {
         contactPopup.classList.remove('hidden');
     });
 
-    // Close Contact Popup
+ 
     closeContactPopupBtn.addEventListener('click', () => {
         contactPopup.classList.add('hidden');
     });
 
-    // Optional: Close popup if clicked outside
+
     contactPopup.addEventListener('click', (event) => {
         if (event.target === contactPopup) {
             contactPopup.classList.add('hidden');
@@ -821,16 +808,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const balanceElement = document.getElementById('balance');
     const notificationIcon = document.querySelector('.notification-icon');
     
-    
+
     let notifications = [];
     let unreadNotificationsCount = 0;
 
-    
     function updateNotificationDisplay() {
         notificationIcon.innerHTML = `🔔 ${unreadNotificationsCount > 0 ? unreadNotificationsCount : ''}`;
     }
 
-    
+
     function addNotification(message) {
         const notification = {
             id: Date.now(),
@@ -843,13 +829,12 @@ document.addEventListener('DOMContentLoaded', () => {
         unreadNotificationsCount++;
         updateNotificationDisplay();
         
-        
+    
         if (notifications.length > 10) {
             notifications.pop();
         }
     }
 
-    
     expenseForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -865,12 +850,12 @@ document.addEventListener('DOMContentLoaded', () => {
             totalSpent += amount;
             balanceChange -= amount;
             
-            
+     
             addNotification(`Spent ₹${amount} on ${category} via ${paymentMethod}`);
         } else {
             balanceChange += amount;
             
-            
+        
             addNotification(`Credited ₹${amount} to account`);
         }
 
@@ -883,16 +868,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="paymentMethod">${paymentMethod}</span>
         `;
 
-        expenseList.appendChild(expenseItem);
+        // expenseList.appendChild(expenseItem);
         expensePopup.classList.add('hidden');
 
-        
         const currentBalance = parseFloat(balanceElement.textContent);
         balanceElement.textContent = (currentBalance + balanceChange).toFixed(2);
         totalSpentElement.textContent = totalSpent.toFixed(2);
     });
 
-    
+  
     document.getElementById('notificationsTab').addEventListener('click', () => {
         const panelContent = document.getElementById('panelContent');
         
@@ -901,7 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        
+
         const notificationHTML = notifications.map(notification => `
             <div class="notification-item">
                 <p>${notification.message}</p>
@@ -910,38 +894,34 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
 
         panelContent.innerHTML = notificationHTML;
-        
-        
+   
         unreadNotificationsCount = 0;
         updateNotificationDisplay();
     });
 
-    
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-   
+
     const dailyLimitInput = document.getElementById('daily-limit');
     const monthlyLimitInput = document.getElementById('monthly-limit');
     const saveLimitsBtn = document.getElementById('save-limits');
     const alertMessage = document.getElementById('alert-message');
     const analyticsContent = document.querySelector('.analytics-content');
 
-    
+
     let dailyExpenses = 0;
     let monthlyExpenses = 0;
     let dailyLimit = 50;
     let monthlyLimit = 1000;
 
-    
     let expenseChart = null;
 
-    
     saveLimitsBtn.addEventListener('click', () => {
         dailyLimit = parseFloat(dailyLimitInput.value);
         monthlyLimit = parseFloat(monthlyLimitInput.value);
         
-        
+        // Store limits in localStorage
         localStorage.setItem('dailyLimit', dailyLimit);
         localStorage.setItem('monthlyLimit', monthlyLimit);
         
@@ -949,33 +929,33 @@ document.addEventListener('DOMContentLoaded', () => {
         alertMessage.style.color = 'green';
     });
 
-   
+    // Modify existing expense form submission
     const expenseForm = document.getElementById('expenseForm');
     expenseForm.addEventListener('submit', (event) => {
         const amount = parseFloat(document.getElementById('amount').value);
         const transactionType = document.getElementById('transactionType').value;
 
         if (transactionType === 'spend') {
-            
+            // Update daily and monthly expenses
             dailyExpenses += amount;
             monthlyExpenses += amount;
 
-            
+            // Check against daily limit
             if (dailyExpenses > dailyLimit) {
                 showAlert(`Daily spending limit exceeded! Current: ₹${dailyExpenses.toFixed(2)}`, 'red');
             }
 
-           
+            // Check against monthly limit
             if (monthlyExpenses > monthlyLimit) {
                 showAlert(`Monthly spending limit exceeded! Current: ₹${monthlyExpenses.toFixed(2)}`, 'red');
             }
 
-           
+            // Update chart
             updateExpenseChart();
         }
     });
 
-    
+    // Alert function
     function showAlert(message, color) {
         const alertDiv = document.createElement('div');
         alertDiv.textContent = message;
@@ -985,26 +965,27 @@ document.addEventListener('DOMContentLoaded', () => {
         alertDiv.style.borderRadius = '5px';
         alertDiv.style.marginBottom = '10px';
 
-       
+        // Prepend to analytics content
         analyticsContent.insertBefore(alertDiv, analyticsContent.firstChild);
 
-        
+        // Remove alert after 5 seconds
         setTimeout(() => {
             alertDiv.remove();
         }, 5000);
     }
 
-    
+    // Create expense chart
     function createExpenseChart() {
-       
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'expenseChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-        
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         expenseChart = new Chart(ctx, {
             type: 'bar',
@@ -1049,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // Update expense chart
     function updateExpenseChart() {
         if (!expenseChart) {
             createExpenseChart();
@@ -1063,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monthlyLimit
         ];
 
-       
+        // Update colors based on limit
         expenseChart.data.datasets[0].backgroundColor = [
             dailyExpenses > dailyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
             monthlyExpenses > monthlyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
@@ -1074,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseChart.update();
     }
 
-    
+    // Load saved limits from localStorage
     const savedDailyLimit = localStorage.getItem('dailyLimit');
     const savedMonthlyLimit = localStorage.getItem('monthlyLimit');
 
@@ -1088,25 +1069,25 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyLimitInput.value = monthlyLimit;
     }
 
-   
+    // Initialize chart
     createExpenseChart();
 });
-
+// Budget Tracking and Alerts System
 document.addEventListener('DOMContentLoaded', () => {
-   
+    // Select necessary DOM elements
     const dailyLimitInput = document.getElementById('daily-limit');
     const monthlyLimitInput = document.getElementById('monthly-limit');
     const saveLimitsBtn = document.getElementById('save-limits');
     const alertMessage = document.getElementById('alert-message');
     const analyticsContent = document.querySelector('.analytics-content');
 
-    
+    // Expense tracking variables
     let dailyExpenses = 0;
     let monthlyExpenses = 0;
     let dailyLimit = 50;
     let monthlyLimit = 1000;
 
-   
+    // Expense categories tracking
     const expenseCategories = {
         'Food': 0,
         'Transportation': 0,
@@ -1116,19 +1097,18 @@ document.addEventListener('DOMContentLoaded', () => {
         'Miscellaneous': 0
     };
 
-   
+    // Monthly expenses history (for histogram)
     const monthlyExpensesHistory = [];
 
-   
+    // Chart configurations
     let expenseChart = null;
     let categoryChart = null;
     let monthlyExpensesChart = null;
 
-    
+    // Save budget limits
     saveLimitsBtn.addEventListener('click', () => {
         dailyLimit = parseFloat(dailyLimitInput.value);
         monthlyLimit = parseFloat(monthlyLimitInput.value);
-        
         
         localStorage.setItem('dailyLimit', dailyLimit);
         localStorage.setItem('monthlyLimit', monthlyLimit);
@@ -1137,7 +1117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alertMessage.style.color = 'green';
     });
 
-   
     const expenseForm = document.getElementById('expenseForm');
     expenseForm.addEventListener('submit', (event) => {
         event.preventDefault(); 
@@ -1147,31 +1126,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const category = document.getElementById('category').value;
 
         if (transactionType === 'spend') {
-            
             dailyExpenses += amount;
             monthlyExpenses += amount;
 
-            
+            // Update category expenses
             expenseCategories[category] += amount;
 
-            
+            // Check against daily limit
             if (dailyExpenses > dailyLimit) {
                 showAlert(`Daily spending limit exceeded! Current: ₹${dailyExpenses.toFixed(2)}`, 'red');
             }
 
-            
+            // Check against monthly limit
             if (monthlyExpenses > monthlyLimit) {
                 showAlert(`Monthly spending limit exceeded! Current: ₹${monthlyExpenses.toFixed(2)}`, 'red');
             }
 
-            
+            // Update charts
             updateExpenseChart();
             updateCategoryChart();
             updateMonthlyExpensesChart();
         }
     });
 
-   
+    // Alert function
     function showAlert(message, color) {
         const alertDiv = document.createElement('div');
         alertDiv.textContent = message;
@@ -1181,27 +1159,26 @@ document.addEventListener('DOMContentLoaded', () => {
         alertDiv.style.borderRadius = '5px';
         alertDiv.style.marginBottom = '10px';
 
-        
+        // Prepend to analytics content
         analyticsContent.insertBefore(alertDiv, analyticsContent.firstChild);
 
-        
+        // Remove alert after 5 seconds
         setTimeout(() => {
             alertDiv.remove();
         }, 5000);
     }
 
-   
+    // Create expense overview chart
     function createExpenseChart() {
-        
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'expenseChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-       
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         expenseChart = new Chart(ctx, {
             type: 'bar',
@@ -1246,18 +1223,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   
+    // Create category expenses chart
     function createCategoryChart() {
-      
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'categoryChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-       
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         categoryChart = new Chart(ctx, {
             type: 'bar',
@@ -1306,18 +1283,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // Create monthly expenses histogram
     function createMonthlyExpensesChart() {
-        
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'monthlyExpensesChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-        
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-        
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         monthlyExpensesChart = new Chart(ctx, {
             type: 'line',
@@ -1353,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // Update expense overview chart
     function updateExpenseChart() {
         if (!expenseChart) {
             createExpenseChart();
@@ -1367,7 +1344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monthlyLimit
         ];
 
-      
+        // Update colors based on limit
         expenseChart.data.datasets[0].backgroundColor = [
             dailyExpenses > dailyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
             monthlyExpenses > monthlyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
@@ -1378,7 +1355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseChart.update();
     }
 
-    
+    // Update category chart
     function updateCategoryChart() {
         if (!categoryChart) {
             createCategoryChart();
@@ -1389,13 +1366,13 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryChart.update();
     }
 
-    
+    // Update monthly expenses histogram
     function updateMonthlyExpensesChart() {
-        
+        // At the end of each month, add the total monthly expenses to history
         if (monthlyExpensesHistory.length === 0 || monthlyExpensesHistory.length < 12) {
             monthlyExpensesHistory.push(monthlyExpenses);
         } else {
-           
+            // If we have 12 months of data, remove the oldest and add the newest
             monthlyExpensesHistory.shift();
             monthlyExpensesHistory.push(monthlyExpenses);
         }
@@ -1410,7 +1387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyExpensesChart.update();
     }
 
- 
+    // Load saved limits from localStorage
     const savedDailyLimit = localStorage.getItem('dailyLimit');
     const savedMonthlyLimit = localStorage.getItem('monthlyLimit');
 
@@ -1424,7 +1401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyLimitInput.value = monthlyLimit;
     }
 
-   
+    // Initialize charts
     createExpenseChart();
     createCategoryChart();
     createMonthlyExpensesChart();
