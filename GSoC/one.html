@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
+           }
 
         .profile-info {
             display: grid;
@@ -664,7 +664,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             balanceChange += amount;
         }
-
         const expenseItem = document.createElement('div');
         expenseItem.classList.add('expense-item-bar', transactionType);
         expenseItem.innerHTML = `
@@ -673,14 +672,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="date">${date}</span>
             <span class="paymentMethod">${paymentMethod}</span>
         `;
-
         expenseList.appendChild(expenseItem);
         expensePopup.classList.add('hidden');
 
  
         const currentBalance = parseFloat(balanceElement.textContent);
-        balanceElement.textContent = (currentBalance + balanceChange).toFixed(2);
-        totalSpentElement.textContent = totalSpent.toFixed(2);
+        balanceElement.textContent = (currentBalance + balanceChange).toFixed(1);
+        totalSpentElement.textContent = totalSpent.toFixed(1);
     });
 
 
@@ -748,15 +746,15 @@ document.addEventListener('DOMContentLoaded', () => {
         panelTitle.textContent = 'Notifications';
         panelContent.innerHTML = '<p>Loading notifications...</p>';
 
-        setTimeout(() => {
-            panelContent.innerHTML = `
-                <ul>
-                    <li>Notification 1: You spent ₹500 on food.</li>
-                    <li>Notification 2: Your balance is low!</li>
-                    <li>Notification 3: Expense report generated.</li>
-                </ul>
-            `;
-        }, 1000);
+        // setTimeout(() => {
+        //     panelContent.innerHTML = `
+        //         <ul>
+        //             <li>Notification 1: You spent ₹500 on food.</li>
+        //             <li>Notification 2: Your balance is low!</li>
+        //             <li>Notification 3: Expense report generated.</li>
+        //         </ul>
+        //     `;
+        // }, 1000);
     });
 
 
@@ -870,7 +868,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="paymentMethod">${paymentMethod}</span>
         `;
 
-        expenseList.appendChild(expenseItem);
+        // expenseList.appendChild(expenseItem);
         expensePopup.classList.add('hidden');
 
         const currentBalance = parseFloat(balanceElement.textContent);
@@ -923,7 +921,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dailyLimit = parseFloat(dailyLimitInput.value);
         monthlyLimit = parseFloat(monthlyLimitInput.value);
         
-
+        // Store limits in localStorage
         localStorage.setItem('dailyLimit', dailyLimit);
         localStorage.setItem('monthlyLimit', monthlyLimit);
         
@@ -931,33 +929,33 @@ document.addEventListener('DOMContentLoaded', () => {
         alertMessage.style.color = 'green';
     });
 
-
+    // Modify existing expense form submission
     const expenseForm = document.getElementById('expenseForm');
     expenseForm.addEventListener('submit', (event) => {
         const amount = parseFloat(document.getElementById('amount').value);
         const transactionType = document.getElementById('transactionType').value;
 
         if (transactionType === 'spend') {
-        
+            // Update daily and monthly expenses
             dailyExpenses += amount;
             monthlyExpenses += amount;
 
-         
+            // Check against daily limit
             if (dailyExpenses > dailyLimit) {
                 showAlert(`Daily spending limit exceeded! Current: ₹${dailyExpenses.toFixed(2)}`, 'red');
             }
 
-           
+            // Check against monthly limit
             if (monthlyExpenses > monthlyLimit) {
                 showAlert(`Monthly spending limit exceeded! Current: ₹${monthlyExpenses.toFixed(2)}`, 'red');
             }
 
-           
+            // Update chart
             updateExpenseChart();
         }
     });
 
-  
+    // Alert function
     function showAlert(message, color) {
         const alertDiv = document.createElement('div');
         alertDiv.textContent = message;
@@ -967,26 +965,27 @@ document.addEventListener('DOMContentLoaded', () => {
         alertDiv.style.borderRadius = '5px';
         alertDiv.style.marginBottom = '10px';
 
+        // Prepend to analytics content
         analyticsContent.insertBefore(alertDiv, analyticsContent.firstChild);
 
-       
+        // Remove alert after 5 seconds
         setTimeout(() => {
             alertDiv.remove();
-        }, 10000);
+        }, 5000);
     }
 
-   
+    // Create expense chart
     function createExpenseChart() {
-        
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'expenseChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-       
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         expenseChart = new Chart(ctx, {
             type: 'bar',
@@ -1031,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   
+    // Update expense chart
     function updateExpenseChart() {
         if (!expenseChart) {
             createExpenseChart();
@@ -1045,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monthlyLimit
         ];
 
-        
+        // Update colors based on limit
         expenseChart.data.datasets[0].backgroundColor = [
             dailyExpenses > dailyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
             monthlyExpenses > monthlyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
@@ -1056,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseChart.update();
     }
 
-   
+    // Load saved limits from localStorage
     const savedDailyLimit = localStorage.getItem('dailyLimit');
     const savedMonthlyLimit = localStorage.getItem('monthlyLimit');
 
@@ -1070,24 +1069,25 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyLimitInput.value = monthlyLimit;
     }
 
-  
+    // Initialize chart
     createExpenseChart();
 });
-
+// Budget Tracking and Alerts System
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // Select necessary DOM elements
     const dailyLimitInput = document.getElementById('daily-limit');
     const monthlyLimitInput = document.getElementById('monthly-limit');
     const saveLimitsBtn = document.getElementById('save-limits');
     const alertMessage = document.getElementById('alert-message');
     const analyticsContent = document.querySelector('.analytics-content');
 
+    // Expense tracking variables
     let dailyExpenses = 0;
     let monthlyExpenses = 0;
     let dailyLimit = 50;
     let monthlyLimit = 1000;
 
-    
+    // Expense categories tracking
     const expenseCategories = {
         'Food': 0,
         'Transportation': 0,
@@ -1097,18 +1097,18 @@ document.addEventListener('DOMContentLoaded', () => {
         'Miscellaneous': 0
     };
 
-    
+    // Monthly expenses history (for histogram)
     const monthlyExpensesHistory = [];
- 
+
+    // Chart configurations
     let expenseChart = null;
     let categoryChart = null;
     let monthlyExpensesChart = null;
 
-   
+    // Save budget limits
     saveLimitsBtn.addEventListener('click', () => {
         dailyLimit = parseFloat(dailyLimitInput.value);
         monthlyLimit = parseFloat(monthlyLimitInput.value);
-        
         
         localStorage.setItem('dailyLimit', dailyLimit);
         localStorage.setItem('monthlyLimit', monthlyLimit);
@@ -1117,7 +1117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alertMessage.style.color = 'green';
     });
 
-   
     const expenseForm = document.getElementById('expenseForm');
     expenseForm.addEventListener('submit', (event) => {
         event.preventDefault(); 
@@ -1127,31 +1126,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const category = document.getElementById('category').value;
 
         if (transactionType === 'spend') {
-            
             dailyExpenses += amount;
             monthlyExpenses += amount;
 
-           
+            // Update category expenses
             expenseCategories[category] += amount;
 
-            
+            // Check against daily limit
             if (dailyExpenses > dailyLimit) {
                 showAlert(`Daily spending limit exceeded! Current: ₹${dailyExpenses.toFixed(2)}`, 'red');
             }
 
-            
+            // Check against monthly limit
             if (monthlyExpenses > monthlyLimit) {
                 showAlert(`Monthly spending limit exceeded! Current: ₹${monthlyExpenses.toFixed(2)}`, 'red');
             }
 
-           
+            // Update charts
             updateExpenseChart();
             updateCategoryChart();
             updateMonthlyExpensesChart();
         }
     });
 
-    
+    // Alert function
     function showAlert(message, color) {
         const alertDiv = document.createElement('div');
         alertDiv.textContent = message;
@@ -1161,27 +1159,26 @@ document.addEventListener('DOMContentLoaded', () => {
         alertDiv.style.borderRadius = '5px';
         alertDiv.style.marginBottom = '10px';
 
-        
+        // Prepend to analytics content
         analyticsContent.insertBefore(alertDiv, analyticsContent.firstChild);
 
-        
+        // Remove alert after 5 seconds
         setTimeout(() => {
             alertDiv.remove();
         }, 5000);
     }
 
-   
+    // Create expense overview chart
     function createExpenseChart() {
-        
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'expenseChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-       
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         expenseChart = new Chart(ctx, {
             type: 'bar',
@@ -1226,18 +1223,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // Create category expenses chart
     function createCategoryChart() {
-      
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'categoryChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-        
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         categoryChart = new Chart(ctx, {
             type: 'bar',
@@ -1286,18 +1283,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // Create monthly expenses histogram
     function createMonthlyExpensesChart() {
-      
+        // Create canvas element
         const chartCanvas = document.createElement('canvas');
         chartCanvas.id = 'monthlyExpensesChart';
         chartCanvas.width = 400;
         chartCanvas.height = 200;
 
-       
+        // Add to analytics content
         analyticsContent.appendChild(chartCanvas);
 
-       
+        // Chart.js configuration
         const ctx = chartCanvas.getContext('2d');
         monthlyExpensesChart = new Chart(ctx, {
             type: 'line',
@@ -1333,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   
+    // Update expense overview chart
     function updateExpenseChart() {
         if (!expenseChart) {
             createExpenseChart();
@@ -1347,7 +1344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monthlyLimit
         ];
 
-       
+        // Update colors based on limit
         expenseChart.data.datasets[0].backgroundColor = [
             dailyExpenses > dailyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
             monthlyExpenses > monthlyLimit ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)',
@@ -1358,6 +1355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expenseChart.update();
     }
 
+    // Update category chart
     function updateCategoryChart() {
         if (!categoryChart) {
             createCategoryChart();
@@ -1368,13 +1366,13 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryChart.update();
     }
 
-   
+    // Update monthly expenses histogram
     function updateMonthlyExpensesChart() {
-       
+        // At the end of each month, add the total monthly expenses to history
         if (monthlyExpensesHistory.length === 0 || monthlyExpensesHistory.length < 12) {
             monthlyExpensesHistory.push(monthlyExpenses);
         } else {
-           
+            // If we have 12 months of data, remove the oldest and add the newest
             monthlyExpensesHistory.shift();
             monthlyExpensesHistory.push(monthlyExpenses);
         }
@@ -1389,7 +1387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyExpensesChart.update();
     }
 
-    
+    // Load saved limits from localStorage
     const savedDailyLimit = localStorage.getItem('dailyLimit');
     const savedMonthlyLimit = localStorage.getItem('monthlyLimit');
 
@@ -1403,7 +1401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monthlyLimitInput.value = monthlyLimit;
     }
 
-    
+    // Initialize charts
     createExpenseChart();
     createCategoryChart();
     createMonthlyExpensesChart();
